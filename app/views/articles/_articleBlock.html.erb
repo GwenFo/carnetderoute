@@ -1,0 +1,16 @@
+<div class="col-md-4 col-sm-6">
+	<div class='article-header'>
+		<div class="article-image">
+			<div style="background: url(<%= articleBlock.main_image.url(:medium) %>) no-repeat center center;"></div>
+		</div>
+		<div class='article-country'>
+			<%= articleBlock.country %> - <%= l articleBlock.date, format: :fr_short %>
+		</div>
+		<%= link_to (root_url + "articles/#{articleBlock.slug}") do %> 
+			<h2 class='article-title'> <%= articleBlock.title %></h2>
+		<% end %>
+		<p class="article-content">
+			<%= ActionView::Base.full_sanitizer.sanitize(articleBlock.content.html_safe) %>
+		</p>
+	</div>
+</div>

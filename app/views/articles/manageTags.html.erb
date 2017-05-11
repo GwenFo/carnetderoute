@@ -1,0 +1,19 @@
+<div class="container article-body">
+	<div class="h1-box"><h1> Gestion des tags </h1></div>
+<br/>
+Nouveau tag : 
+<%= form_for @new_tag, url: "/tags" do |t| %>
+	<% t.label :name %>
+	<%= t.text_field :name %>
+	<%= t.submit "Créer" %>
+<% end %>
+
+Liste des tags :<br/> 
+<% @liste_tags.each do |t| %>
+	<%= t.name %> 
+	<%= form_tag "/tags/#{t.id}", method: "delete" do %>
+		<input type="submit" value="Delete" />
+	<% end %>
+	<br/> 
+<% end %>
+</div>

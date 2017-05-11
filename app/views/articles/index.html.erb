@@ -1,0 +1,13 @@
+<div class="container article-body">
+
+<div class="h1-box"><h1> Tous mes voyages </h1></div>
+
+<% if current_user %>
+<div class="new-article"><a href="articles/new"> Ecrire un nouvel article </a> </div>
+<% end %>
+
+<!--<%= paginate @liste_articles %>-->
+<div class="row">
+<%= render(partial: 'articleBlock', collection: @liste_articles) || "No articles" %>
+</div>
+</div>

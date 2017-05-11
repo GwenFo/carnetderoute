@@ -1,0 +1,367 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ *= require jqcloud
+ *= require owl.carousel
+ *= require owl.theme
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
+$blue-color: #34c6bf;
+$dblue-color: #1a6b68;
+$grey-color: #e8e8e8;
+
+@font-face {
+    font-family: "Roboto Slab";
+    src: asset-url('robotoslab-regular-webfont.woff2') format('woff2'),
+    	asset-url('robotoslab-regular-webfont.woff') format('woff'),
+    	asset-url('RobotoSlab-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: "Title";
+    src: asset-url('From-ashes-to-beauty.ttf') format('truetype');
+}
+
+.title,h1,h2{
+	font-weight:normal;
+	font-variant:normal;
+}
+a:hover, a:focus, a:active{
+	text-decoration: none;
+	color:$blue-color;
+}
+body{
+    transition: all 0.2s linear 0s;
+}
+
+
+/* Header */
+header{
+	color:white;
+	height:200px;
+	background-image: asset-url('top.jpg');
+	background-size:cover;
+}
+.title{
+	text-align:center;
+	margin-top:20px;
+	font-family: "Title";
+	font-size:60px;
+}
+
+/* Menu */
+#navbar{
+	text-align:center;
+	box-shadow: 0 2px 2px rgba(190, 190, 190, 0.3);
+    backface-visibility: hidden;
+    background: #fff none repeat scroll 0 0;
+    height: 60px;
+    transition: all 0.3s ease 0s;
+    width: 100%;
+    z-index: 9999;
+    font-family:"Title";
+    font-size:30px;
+}
+.navbar-nav{
+	margin: 0 auto;
+	float:none;
+	text-align: center;
+}
+.navbar-nav hr{
+   background-color: black;
+    border: medium none;
+    height: 15px;
+    margin: 20px;
+    opacity: 0.1;
+    width: 1px;
+    display:inline-flex;
+}
+.navbar-nav a{
+	padding:0 20px 16px;
+    transition: all 0.2s linear 0s;
+    color:black;
+
+}
+.navbar-nav a:hover{
+	color: $blue-color;
+	text-decoration: none;
+    border-bottom:4px solid $blue-color;
+}
+.navbar-nav a:focus, .navbar-nav a:active{
+	text-decoration: none;
+}
+.navbar-header .navbar-toggle {
+    border: 2px solid $blue-color;
+    margin: 12px 35px 10px 10px;
+}
+.icon-bar{
+	background-color: $blue-color;
+}
+#nav-search{
+	background: $blue-color none repeat scroll 0 0;
+	width:60px;
+	height:60px;
+	margin:0 0 0 20px;
+	display:inline-block;
+	padding:0;
+	font-size:14px;
+}
+#nav-search:hover{
+	opacity:0.8;
+	border-bottom:none;
+}
+#nav-search i{
+	color: #ffffff;
+	text-align:center;
+	line-height:60px;
+	width:60px;
+}
+@media (max-width: 768px){
+	.navbar-nav hr{
+		display:none;
+	}
+	.navbar-nav a{
+		display:block;
+		padding:0 !important;
+		font-size:25px;
+	}
+	.container{
+		margin:0 !important;
+	}
+	header{
+		display:none;
+	}
+	#navbar{
+		height:auto !important;
+	}
+	.title-mobile{
+		text-align:center;
+		font-family: "Title";
+		font-size:32px;
+		color:$blue-color;
+		margin-top:5px;
+	}
+	#menu{
+		float:right;
+	}
+	.navbar-header .navbar-toggle{
+		margin:5px 10px 10px 10px !important;
+	}
+	#nav-search{
+		height:auto;
+		margin:0;
+		background:none;
+
+	}
+	#nav-search i{
+		color:#303030;
+		line-height:35px;
+	}
+}
+@media (min-width: 768px){
+	.title-mobile{
+		display:none;
+	}
+}
+
+/* Article */
+.article-body{
+	max-width:900px;
+	margin:20px auto;
+	text-align:center;
+}
+.article-body > .article-content{
+	font-size: 17px;
+    line-height: 25px;
+}
+h1{
+	text-align:center;
+	font-family:"Title";
+	color:white;
+	background-color:$blue-color;
+	display:inline-block;
+	padding:15px;
+	margin:0px;
+	border:solid white 1px;
+
+}
+.h1-box{
+	background-color:$blue-color;
+	padding:5px;
+	display:inline-block;
+	margin:20px auto;
+}
+h2{
+	color:$blue-color;
+	font-style: normal;
+	text-align:left;
+}
+div, p{
+	text-align:justify;
+}
+.tag a{
+	background-color:$blue-color;
+	padding:5px;
+	color:white;
+	border-radius:2px;
+}
+.tag a:hover, .tag a:active, .tag a:focus{
+	box-shadow: 0 1px 0 rgba(190, 190, 190, 0.3);
+}
+.article-tags{
+	color:$blue-color;
+	text-align:center;
+}
+.article-date{
+	font-style: italic;
+	text-align:center;
+	margin-bottom:20px;
+}
+
+	/* Carousel */
+.owl-carousel{
+	margin:10px auto 50px auto;
+}
+.owl-item{
+	max-height:600px;
+	background-color:#303030;
+}
+.legend{
+	position: absolute;
+	bottom: 20px;
+	margin: 0 auto;
+	font-size: 20px;
+	color: white;
+	width: 100%;
+	text-align: center;
+	background-color: rgba(0, 0, 0, 0.3);
+	padding: 5px 50px;
+}
+.owl-item img{
+    margin: 0 auto;
+    display:block;
+}
+.owl-controls{
+	position:absolute;
+	width:100%;
+	top: 50%;
+}
+.owl-buttons{
+	position:absolute;
+	top:0px;
+	width:100%;
+}
+.owl-prev{
+	position:absolute;
+	left:10px;
+}
+.owl-next{
+	position:absolute;
+	right:10px;
+}
+.owl-pagination{
+	margin-top:300px;
+	text-align:center;
+}
+.owl-page span, .owl-buttons div{
+	background-color:$blue-color !important;
+}
+
+/* Article Block */
+.article-header{
+    height:360px;
+    margin-bottom: 20px;
+    overflow: hidden;
+}
+.article-header .article-country{
+    font-family:"Title";
+    color:$blue-color;
+    font-size:24px;
+}
+.article-header h2{
+	margin-top:0px;
+	font-size: 25px;
+}
+.article-header .article-image{
+	width:100%;
+	height:200px;
+	overflow:hidden;    
+}
+.article-header .article-content{
+	height:60px;
+	overflow:hidden;
+}
+.article-header .article-image div{
+   	width:100%;
+   	height:100%;
+}
+a .article-title{
+	color:#353535;
+	text-align: left;
+    transition: all 0.2s linear 0s;
+}
+a .article-title:hover, a .article-title:focus, a .article-title:active{
+	text-decoration: none;
+	color:$blue-color;
+}
+
+/* Map */
+#map{
+	width:100%;
+	max-width:900px;
+	height:500px;
+	margin:0 auto;
+}
+.infowindow{
+	max-width:100px;
+	text-align:center;
+}
+@media (max-width: 768px){
+	#map{
+		height:300px;
+	}
+}
+
+/* Themes */
+#cloud{
+	max-width: 550px; 
+	height: 350px;
+	margin:0 auto;
+	text-align:center;
+}
+.w10, .w7{
+	color:$blue-color !important;
+}
+div.jqcloud a:hover{
+	color:$blue-color !important;
+}
+
+/* Footer */
+.body{
+	box-shadow: 0 2px 2px rgba(190, 190, 190, 0.5);
+	padding-bottom:10px;
+}
+footer{
+	font-size:12px;
+	margin-top:3px;
+	font-style:italic;
+	padding:10px 5%;
+	text-align:center;
+	background-color:#f7f7f7;
+}

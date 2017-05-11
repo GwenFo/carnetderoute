@@ -1,0 +1,42 @@
+<div class="article-body">
+  <div id="map"></div>
+</div>
+
+<script>
+	var center = new google.maps.LatLng(30, 0);
+	var options = {
+	  'zoom': 2,
+	  'center': center,
+	  'mapTypeId': google.maps.MapTypeId.ROADMAP
+	};
+	var map = new google.maps.Map(document.getElementById("map"), options);
+	
+	var markers = {};
+	var infowindows = {};
+
+	<% @trips.each do |t| %>
+		var marker = new google.maps.Marker({
+            position: {'lat': <%= t.lat %>, 'lng': <%= t.lgn %>},
+            map: map,
+            icon: "<%= asset_path('map-marker.png') %>"
+          });
+		markers[<%= t.id %>] = marker;
+		var infowindow = new google.maps.InfoWindow({
+		    content: "<div class='infowindow'><img src='<%= t.main_image.url(:thumb) %>'/><br/><%= t.title %></div>"
+		  });
+        infowindows[<%= t.id %>] = infowindow;
+		marker.addListener('mouseover', function() {
+		    infowindows[<%= t.id %>].open(map, markers[<%= t.id %>]);
+		  });
+		marker.addListener('mouseout', function() {
+		    infowindows[<%= t.id %>].close();
+		  });
+		marker.addListener('click', function(){
+		  	window.location.replace("articles/<%= t.id %>");
+		  })
+	<% end %>
+
+	var mcOptions = {gridSize: 1, maxZoom: 18, imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'};
+	var mc = new MarkerClusterer(map, markers, mcOptions);
+
+</script>

@@ -1,0 +1,60 @@
+<div class="container article-body">
+<div class="h1-box"><h1> <%= @article.title %> </h1></div>
+<div class="article-content">
+	<%= @article.content.html_safe %>
+</div>
+<div class='article-date'>
+	<%= @article.place %>, <%= @article.country %>, le <%= l @article.date, format: :fr_short %>
+</div>
+<p class="article-tags">
+	- <% @article.tags.each do |t| %>
+		<span class="tag"><%= link_to t.name, root_url + "themes/#{t.id}" %> </span> -
+	<% end %>
+</p>
+
+<% if current_user %>
+	<%= form_for @article, url: "/articles/#{@article.id}", html: { multipart: true } do |f| %>
+		<%= f.label :title %> :
+		<%= f.text_field :title %><br/>
+		<%= f.label :main_image %> :
+		<%= f.file_field :main_image %><br/>
+		<%= f.label :country %> : 
+		<%= f.text_field :country %>
+		<%= f.label :place %> : 
+		<%= f.text_field :place %>
+		<%= f.label :content %> : 
+		<%= f.cktext_area :content, :width => 100 %>
+		<%= f.label :lat %> : 
+		<%= f.text_field :lat %>
+		<%= f.label :lgn %> : 
+		<%= f.text_field :lgn %>
+		<br/> 
+		Tags : 
+		<% @tags.each do |t| %>
+			- <%= label_tag t.name  %>
+			<% if @article.tags.any? {|a| a[:id] == t.id}  %>
+			  <%= check_box_tag "tags[#{t.id}]", t.name, true %>
+			<% else %>
+				<%= check_box_tag "tags[#{t.id}]", t.name %>
+			<% end %>
+		<% end %>
+		<br/>
+		<%= f.submit "Modifier" %>
+	<% end %>
+
+	<%= form_tag "/articles/#{@article.id}", method: "delete" do %>
+			<input type="submit" value="Delete" />
+	<% end %>
+<% end %>
+</div>
+
+<script>
+	$(".owl-carousel").owlCarousel({
+	  navigation : true,
+      singleItem:true,
+      autoPlay:true,
+      autoPlayTimeout:3000
+	});
+	$(".owl-prev").html("<span class='glyphicon glyphicon-chevron-left'></span>");
+	$(".owl-next").html("<span class='glyphicon glyphicon-chevron-right'></span>");
+</script>

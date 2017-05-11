@@ -1,0 +1,10 @@
+<div id="cloud" class="jqcloud"></div>
+
+<script type="text/javascript">
+
+  var word_array = <%= @words.to_json.html_safe %>;
+
+  $(function() {
+   	$("#cloud").jQCloud(word_array);
+  });
+</script>

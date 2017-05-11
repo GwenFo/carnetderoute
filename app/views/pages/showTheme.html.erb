@@ -1,0 +1,6 @@
+<div class="container article-body">
+	<div class="h1-box"><h1> Voyages sur le theme : <%= @theme.name %></h1></div>
+	<div class="row">
+		<%= render(partial: 'articles/articleBlock', collection: @articles) || "No articles" %>
+	</div>
+</div>

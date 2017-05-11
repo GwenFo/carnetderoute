@@ -1,0 +1,27 @@
+<div class="container article-body">
+	<div class="h1-box"><h1>Créer un nouvel article</h1></div>
+
+<%= form_for @article, url: "/articles" do |a| %>
+	<%= a.label :title %>
+	<%= a.text_field :title %>
+	Main Image : <%= a.label :main_image %>
+	<%= a.file_field :main_image %>
+	<%= a.label :country %>
+	<%= a.text_field :country %>
+	<%= a.label :place %>
+	<%= a.text_field :place %>
+	<%= a.label :lat %>
+	<%= a.text_field :lat %>
+	<%= a.label :lgn %>
+	<%= a.text_field :lgn %>
+	<%= a.label :content %>
+	<%= a.cktext_area :content, :width => 100 %>
+	<br /> 
+	<% @tags.each do |t| %>
+	  - <%= label_tag t.name  %>
+	  <%= check_box_tag "tags[#{t.id}]", t.name  %>
+	<% end %>
+	<br />
+	<%= a.submit "Créer" %>
+<% end %>
+</div>

@@ -1,0 +1,21 @@
+fr:
+  views:
+    pagination:
+      first: "&laquo; Première Page"
+      last: "Dernière page &raquo;"
+      previous: "&lsaquo; Précédente"
+      next: "Suivante &rsaquo;"
+      truncate: "&hellip;"
+  time:
+    formats: 
+        fr_long: "%-d %B %Y à %Hh%M"
+        short: "%b %y"
+        fr_datetime_short: "%d/%m/%y %H:%M"
+        fr_time_short: "%H:%M"
+        fr_short: "%e %B"
+  date:
+    month_names: [~, Janvier, Février, Mars, Avril, Mai, Juin, Juillet, Août, Septembre, Octobre, Novembre, Décembre]
+    abbr_month_names: [~, Jan, Fév, Mars, Avr, Mai, Juin, Juil, Août, Sep, Oct, Nov, Déc]
+    formats: 
+        fr_long: "%-d %B %Y"
+        fr_short: "%e %B"
